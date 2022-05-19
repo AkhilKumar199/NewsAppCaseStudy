@@ -1,3 +1,4 @@
+// Importing package in this code module
 package com.cg.exception;
 
 public class ArticleAlreadyExists extends Exception{
