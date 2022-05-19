@@ -1,3 +1,4 @@
+// Importing package module to code fragment
 package com.cg.service;
 
 //Importing required classes
@@ -22,13 +23,13 @@ import com.cg.repository.ArticleRepository;
 public  class ArticleServiceImpl implements ArticleService{
 
   private ArticleRepository articleRepo;
-
+//Annotation
   @Autowired
   public ArticleServiceImpl(ArticleRepository articleRepo) {
       super();
       this.articleRepo = articleRepo;
   }
-
+// Save operation
   @Override
   public Article addArticle(Article article) throws ArticleAlreadyExists {
       // TODO Auto-generated method stub
