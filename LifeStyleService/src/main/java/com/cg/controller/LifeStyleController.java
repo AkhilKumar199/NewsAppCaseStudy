@@ -1,5 +1,6 @@
+// Importing package in this code module
 package com.cg.controller;
-
+//Importing required classes
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +25,7 @@ import com.cg.repository.LifeStyleRepository;
 import com.cg.service.LifeStyleService;
 
 
-
+//Annotation 
 @RestController
 @RequestMapping("/api/v1")
 public class LifeStyleController {
@@ -35,11 +36,14 @@ public class LifeStyleController {
     @Autowired
     private LifeStyleService lifestyleServ;
  
+    // Save operation
     @PostMapping("/addlifestyle")
     public ResponseEntity<LifeStyle>addLifeStyle(@RequestBody LifeStyle lifestyle) throws LifeStyleAlreadyExists {
     	LifeStyle savedlifestyle = lifestyleServ.addLifeStyle(lifestyle);
         return new ResponseEntity<>(savedlifestyle, HttpStatus.CREATED);
     }
+    
+     // Read operation
     @GetMapping("/{id}")
     public Optional<LifeStyle> getLifeStyle(@PathVariable String id){
         return lifestylerepository.findById(id);
@@ -49,12 +53,18 @@ public class LifeStyleController {
         return lifestylerepository.findAll();
 
     }
+    
+     // Update operation
+    
     @PutMapping("/update/{id}")
     public LifeStyle updateLifeStyle(@PathVariable("id") String id,@RequestBody LifeStyle lifestyle ) {
     	lifestyle.setId(id);
     	lifestylerepository.save(lifestyle);
         return lifestyle;
     }
+    
+     // Delete operation
+
 
      @DeleteMapping("/del/{id}")
      public String deleteArticle (@PathVariable String id) {
