@@ -1,5 +1,6 @@
+// Importing package in this code module
 package com.cg.controller;
-
+//Importing required classes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import com.cg.repository.UserRepository;
 import com.cg.service.UserService;
 import com.cg.utils.JwtUtils;
 
+//Annotation 
 @RestController
 public class AuthController {
 	@Autowired
@@ -34,7 +36,7 @@ public class AuthController {
     private String testingToken() {
         return "Welcome to DashBoard";
 	}
-	
+	// Save operation
 	@PostMapping("/register")
 	private ResponseEntity<?> subscribeClient(@RequestBody AuthenticationRequest authenticationRequest){
 		
@@ -55,7 +57,7 @@ public class AuthController {
 	}
 	
 	
-	
+	// Save operation
 	@PostMapping("/login")
 	private ResponseEntity<?> authenticationClient(@RequestBody AuthenticationRequest authenticationRequest){
 		String username = authenticationRequest.getUsername();
